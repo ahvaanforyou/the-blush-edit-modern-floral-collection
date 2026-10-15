@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment files and secrets
+.env
+.env.*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files and logs
+*.tmp
+*.temp
+*.log
+*.bak

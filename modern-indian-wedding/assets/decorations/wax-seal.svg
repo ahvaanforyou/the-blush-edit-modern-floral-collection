@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Organic Wax Seal Silhouette -->
+  <path d="M60 5 C76 4, 91 9, 102 21 C114 33, 117 48, 116 63 C115 78, 108 93, 96 104 C84 115, 68 117, 52 116 C36 115, 20 108, 10 96 C0 84, 2 68, 4 52 C6 36, 15 20, 28 10 C40 3, 52 5, 60 5 Z" 
+        fill="#C98A83"/>
+  <path d="M60 8 C74 7, 88 12, 98 23 C109 34, 112 47, 111 61 C110 75, 104 89, 93 99 C82 109, 67 111, 52 110 C37 109, 22 102, 13 91 C4 80, 5 65, 7 51 C9 36, 17 22, 29 13 C40 6, 51 8, 60 8 Z" 
+        fill="#D49791"/>
+  
+  <!-- Inner Ring in Gold -->
+  <circle cx="60" cy="60" r="43" stroke="#B89A62" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.9" fill="#C2827B"/>
+  <circle cx="60" cy="60" r="39" stroke="#FFF9F2" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Laurel Wreath in Ivory/Gold -->
+  <g stroke="#FFF9F2" stroke-width="0.8" fill="none" opacity="0.75">
+    <!-- Left wreath -->
+    <path d="M32 60 C32 45, 42 34, 55 32"/>
+    <path d="M32 60 C32 75, 42 86, 55 88"/>
+    <!-- Leaves left -->
+    <circle cx="33" cy="48" r="1.8" fill="#FFF9F2"/>
+    <circle cx="38" cy="39" r="1.8" fill="#FFF9F2"/>
+    <circle cx="47" cy="34" r="1.8" fill="#FFF9F2"/>
+    <circle cx="33" cy="72" r="1.8" fill="#FFF9F2"/>
+    <circle cx="38" cy="81" r="1.8" fill="#FFF9F2"/>
+    <circle cx="47" cy="86" r="1.8" fill="#FFF9F2"/>
+
+    <!-- Right wreath -->
+    <path d="M88 60 C88 45, 78 34, 65 32"/>
+    <path d="M88 60 C88 75, 78 86, 65 88"/>
+    <!-- Leaves right -->
+    <circle cx="87" cy="48" r="1.8" fill="#FFF9F2"/>
+    <circle cx="82" cy="39" r="1.8" fill="#FFF9F2"/>
+    <circle cx="73" cy="34" r="1.8" fill="#FFF9F2"/>
+    <circle cx="87" cy="72" r="1.8" fill="#FFF9F2"/>
+    <circle cx="82" cy="81" r="1.8" fill="#FFF9F2"/>
+    <circle cx="73" cy="86" r="1.8" fill="#FFF9F2"/>
+  </g>
+
+  <!-- Monogram Initials P & R -->
+  <text x="60" y="67" 
+        font-family="'Cormorant Garamond', Georgia, serif" 
+        font-size="20" 
+        font-weight="600" 
+        fill="#FFF9F2" 
+        letter-spacing="1.5"
+        text-anchor="middle">P &amp; R</text>
+</svg>

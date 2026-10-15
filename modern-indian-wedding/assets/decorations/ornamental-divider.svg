@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 40" width="100%" height="40" fill="none">
+  <path d="M20 20 H160" stroke="#B89A62" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  <path d="M240 20 H380" stroke="#B89A62" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  <!-- Center Lotus Motif -->
+  <g transform="translate(200, 20)">
+    <!-- Center petal -->
+    <path d="M0 -14 C-4 -6, -4 -2, 0 4 C4 -2, 4 -6, 0 -14 Z" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.8"/>
+    <!-- Side left petals -->
+    <path d="M0 4 C-8 1, -12 -5, -9 -11 C-7 -7, -4 0, 0 4 Z" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.8" opacity="0.9"/>
+    <path d="M0 4 C-12 5, -16 1, -15 -4 C-12 -1, -6 2, 0 4 Z" fill="#A8B5A0" stroke="#B89A62" stroke-width="0.8" opacity="0.8"/>
+    <!-- Side right petals -->
+    <path d="M0 4 C8 1, 12 -5, 9 -11 C7 -7, 4 0, 0 4 Z" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.8" opacity="0.9"/>
+    <path d="M0 4 C12 5, 16 1, 15 -4 C12 -1, 6 2, 0 4 Z" fill="#A8B5A0" stroke="#B89A62" stroke-width="0.8" opacity="0.8"/>
+    <!-- Base scroll -->
+    <circle cx="-25" cy="0" r="2" fill="#B89A62"/>
+    <circle cx="25" cy="0" r="2" fill="#B89A62"/>
+    <circle cx="0" cy="6" r="1.5" fill="#B89A62"/>
+  </g>
+</svg>
