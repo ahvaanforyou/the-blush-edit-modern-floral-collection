@@ -160,11 +160,28 @@
         <g fill="#E8C2BB" stroke="#B58A4D" stroke-width=".7"><path d="M102 281 C92 267 98 254 109 253 C119 265 115 276 102 281Z"/><path d="M193 282 C183 268 188 257 199 255 C208 267 205 278 193 282Z"/></g>
       </symbol>
 
+      <!-- Flower and gold-thread details for the centered hero garland, without foliage. -->
+      <symbol id="hanging-garland-flowers" viewBox="0 0 220 300">
+        <path d="M18 0 C27 61 31 116 48 177 C58 216 76 258 106 296 M104 0 C98 48 110 92 128 137 C146 185 164 232 198 278 M190 0 C174 49 176 98 184 142" fill="none" stroke="#B58A4D" stroke-width="1.2"/>
+        <use href="#blush-blossom" x="26" y="166" width="46" height="46"/>
+        <use href="#cream-blossom" x="112" y="134" width="39" height="39"/>
+        <use href="#blush-blossom" x="161" y="188" width="48" height="48"/>
+        <g fill="#E8C2BB" stroke="#B58A4D" stroke-width=".7"><path d="M102 281 C92 267 98 254 109 253 C119 265 115 276 102 281Z"/><path d="M193 282 C183 268 188 257 199 255 C208 267 205 278 193 282Z"/></g>
+      </symbol>
+
+      <!-- Gold stem and blossoms retain the centered countdown ornament without leaves. -->
+      <symbol id="blossom-branch" viewBox="0 0 260 150">
+        <path d="M12 133 C74 110 134 90 246 17" fill="none" stroke="#B58A4D" stroke-width="1.4" stroke-linecap="round"/>
+        <use href="#blush-blossom" x="12" y="19" width="46" height="46"/>
+        <use href="#cream-blossom" x="189" y="82" width="43" height="43"/>
+        <path d="M107 42 C99 33 103 23 112 20 C121 28 119 37 107 42Z" fill="#D8A7A0" stroke="#B58A4D" stroke-width=".75"/>
+      </symbol>
+
       <symbol id="scattered-petals" viewBox="0 0 180 120">
         <path d="M27 38 C17 26 21 15 32 13 C43 22 40 33 27 38Z" fill="#E8C2BB" stroke="#B58A4D" stroke-width=".7"/>
         <path d="M97 20 C88 9 93 0 103 0 C112 9 109 17 97 20Z" fill="#D8A7A0" stroke="#B58A4D" stroke-width=".65"/>
         <path d="M142 77 C132 64 137 54 147 53 C157 63 154 73 142 77Z" fill="#E8C2BB" stroke="#B58A4D" stroke-width=".7"/>
-        <path d="M64 100 C57 90 61 82 70 81 C78 89 75 97 64 100Z" fill="#9DAE91" stroke="#68765B" stroke-width=".6"/>
+        <path d="M64 100 C57 90 61 82 70 81 C78 89 75 97 64 100Z" fill="#E8C2BB" stroke="#B58A4D" stroke-width=".6"/>
         <path d="M159 28 Q164 33 168 37" fill="none" stroke="#B58A4D" stroke-width=".65"/>
         <circle cx="51" cy="57" r="1.7" fill="#B58A4D"/><circle cx="121" cy="109" r="1.4" fill="#B58A4D"/>
       </symbol>
@@ -183,11 +200,6 @@
       <svg class="opening-ornament opening-garland" viewBox="0 0 220 300"><use href="#hanging-garland"/></svg>
     </div>
     <div class="envelope-wrapper">
-      
-      <!-- Skip button for keyboard / screen reader users -->
-      <button type="button" id="skip-envelope-btn" class="skip-btn" aria-label="Skip opening animation and view invitation directly">
-        Skip directly to invitation &darr;
-      </button>
 
       <div class="envelope" id="envelope" tabindex="0" role="button" aria-label="Wedding invitation envelope. Click or tap to open.">
         
@@ -230,7 +242,6 @@
       <div class="open-instruction">
         <button type="button" id="open-envelope-btn" class="open-btn">
           <span class="btn-text">Tap to Open</span>
-          <span class="btn-subtext">Joyfully invited</span>
         </button>
       </div>
 
@@ -269,7 +280,7 @@
       <svg class="section-ornament ornament-cluster hero-bloom-left" viewBox="0 0 260 360" aria-hidden="true"><use href="#botanical-cluster"/></svg>
       <svg class="section-ornament ornament-cluster hero-bloom-right mirror-x" viewBox="0 0 260 360" aria-hidden="true"><use href="#botanical-cluster"/></svg>
       <svg class="section-ornament ornament-mandala hero-mandala" viewBox="0 0 240 240" aria-hidden="true"><use href="#indian-mandala"/></svg>
-      <svg class="section-ornament ornament-garland hero-garland" viewBox="0 0 220 300" aria-hidden="true"><use href="#hanging-garland"/></svg>
+      <svg class="section-ornament ornament-garland hero-garland" viewBox="0 0 220 300" aria-hidden="true"><use href="#hanging-garland-flowers"/></svg>
       <svg class="section-ornament ornament-petals hero-petals" viewBox="0 0 180 120" aria-hidden="true"><use href="#scattered-petals"/></svg>
       <div class="hero-container">
 
@@ -337,7 +348,7 @@
     <section id="countdown" class="countdown-section decorated-section" aria-label="Wedding Countdown">
       <svg class="section-ornament ornament-mandala countdown-mandala" viewBox="0 0 240 240" aria-hidden="true"><use href="#indian-mandala"/></svg>
       <svg class="section-ornament ornament-cluster countdown-cluster mirror-x" viewBox="0 0 260 360" aria-hidden="true"><use href="#botanical-cluster"/></svg>
-      <svg class="section-ornament ornament-branch countdown-branch" viewBox="0 0 260 150" aria-hidden="true"><use href="#leafy-branch"/></svg>
+      <svg class="section-ornament ornament-branch countdown-branch" viewBox="0 0 260 150" aria-hidden="true"><use href="#blossom-branch"/></svg>
       <svg class="section-ornament ornament-petals countdown-petals" viewBox="0 0 180 120" aria-hidden="true"><use href="#scattered-petals"/></svg>
       <div class="section-container">
         
@@ -446,7 +457,11 @@
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
-                  <span>The Grand Garden</span>
+                  <div class="event-venue-info">
+                    <span>The Grand Garden</span>
+                    <span class="event-venue-address" data-event-address-index="0" hidden></span>
+                    <a class="event-directions-link" data-event-index="0" target="_blank" rel="noopener noreferrer" hidden>Get Directions</a>
+                  </div>
                 </div>
               </div>
 
@@ -493,7 +508,11 @@
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
-                  <span>The Grand Garden</span>
+                  <div class="event-venue-info">
+                    <span>The Grand Garden</span>
+                    <span class="event-venue-address" data-event-address-index="1" hidden></span>
+                    <a class="event-directions-link" data-event-index="1" target="_blank" rel="noopener noreferrer" hidden>Get Directions</a>
+                  </div>
                 </div>
               </div>
 
@@ -890,6 +909,16 @@
 
       </div>
     </footer>
+
+    <audio id="wedding-background-music" src="assets/audio/wedding-song-1.mp3" loop preload="none"></audio>
+    <button type="button" id="audio-toggle" class="audio-toggle" aria-label="Turn background music on" aria-pressed="false" title="Turn background music on">
+      <svg class="audio-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 10v4h4l5 4V6l-5 4H4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <path class="audio-wave" d="M16 9a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        <path class="audio-off-mark" d="m16 9 5 6m0-6-5 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <span id="audio-status" class="sr-only" role="status" aria-live="polite"></span>
 
   </div>
 

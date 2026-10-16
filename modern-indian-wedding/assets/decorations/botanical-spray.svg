@@ -4,10 +4,6 @@
   <!-- Eucalyptus & Rosebuds -->
   <circle cx="100" cy="30" r="5" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.6"/>
   <circle cx="100" cy="30" r="2" fill="#FFF9F2"/>
-  <path d="M92 26 C84 20, 80 25, 86 31 Z" fill="#A8B5A0" opacity="0.8"/>
-  <path d="M108 34 C116 40, 120 35, 114 29 Z" fill="#A8B5A0" opacity="0.8"/>
   <circle cx="74" cy="24" r="3.5" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.5"/>
   <circle cx="126" cy="36" r="3.5" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.5"/>
-  <path d="M66 22 C56 18, 52 24, 60 28 Z" fill="#A8B5A0" opacity="0.8"/>
-  <path d="M134 38 C144 42, 148 36, 140 32 Z" fill="#A8B5A0" opacity="0.8"/>
 </svg>

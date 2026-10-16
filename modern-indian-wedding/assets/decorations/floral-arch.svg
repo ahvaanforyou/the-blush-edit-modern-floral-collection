@@ -26,20 +26,12 @@
     <circle cx="29" cy="-2" r="3.5" fill="#FFF9F2" stroke="#B89A62" stroke-width="0.6"/>
 
     <!-- Sage Eucalyptus Leaves -->
-    <path d="M-12 -15 C-20 -24, -28 -20, -22 -14 C-18 -10, -14 -10, -12 -15 Z" fill="#A8B5A0" opacity="0.9"/>
-    <path d="M12 -15 C20 -24, 28 -20, 22 -14 C18 -10, 14 -10, 12 -15 Z" fill="#A8B5A0" opacity="0.9"/>
-    <path d="M-36 -10 C-46 -16, -50 -8, -42 -4 C-36 -2, -34 -6, -36 -10 Z" fill="#A8B5A0" opacity="0.85"/>
-    <path d="M36 -10 C46 -16, 50 -8, 42 -4 C36 -2, 34 -6, 36 -10 Z" fill="#A8B5A0" opacity="0.85"/>
-    <path d="M-50 2 C-60 -2, -62 6, -54 10 C-48 12, -46 6, -50 2 Z" fill="#A8B5A0" opacity="0.8"/>
-    <path d="M50 2 C60 -2, 62 6, 54 10 C48 12, 46 6, 50 2 Z" fill="#A8B5A0" opacity="0.8"/>
   </g>
 
   <!-- Left Arch Shoulder Florals -->
   <g transform="translate(180, 140) rotate(-35)">
     <circle cx="0" cy="0" r="7" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.8"/>
     <circle cx="0" cy="0" r="3" fill="#FFF9F2"/>
-    <path d="M-6 -8 C-14 -14, -18 -8, -10 -4 Z" fill="#A8B5A0"/>
-    <path d="M6 -8 C14 -14, 18 -8, 10 -4 Z" fill="#A8B5A0"/>
     <circle cx="-14" cy="6" r="4.5" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.5"/>
     <circle cx="14" cy="6" r="4" fill="#FFF9F2" stroke="#B89A62" stroke-width="0.5"/>
   </g>
@@ -48,8 +40,6 @@
   <g transform="translate(520, 140) rotate(35)">
     <circle cx="0" cy="0" r="7" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.8"/>
     <circle cx="0" cy="0" r="3" fill="#FFF9F2"/>
-    <path d="M-6 -8 C-14 -14, -18 -8, -10 -4 Z" fill="#A8B5A0"/>
-    <path d="M6 -8 C14 -14, 18 -8, 10 -4 Z" fill="#A8B5A0"/>
     <circle cx="14" cy="6" r="4.5" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.5"/>
     <circle cx="-14" cy="6" r="4" fill="#FFF9F2" stroke="#B89A62" stroke-width="0.5"/>
   </g>
@@ -57,29 +47,17 @@
   <!-- Left Pillar Vine -->
   <g transform="translate(70, 480)">
     <path d="M0 -150 Q10 -75 0 0 Q-10 75 0 150 Q8 225 0 300" stroke="#B89A62" stroke-width="0.8" fill="none" opacity="0.4"/>
-    <path d="M0 -120 C-10 -125, -15 -118, -8 -110 C-4 -106, 0 -115, 0 -120 Z" fill="#A8B5A0" opacity="0.85"/>
-    <path d="M0 -70 C10 -75, 15 -68, 8 -60 C4 -56, 0 -65, 0 -70 Z" fill="#A8B5A0" opacity="0.85"/>
     <circle cx="-8" cy="-40" r="5" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.6"/>
-    <path d="M0 -10 C-12 -15, -16 -8, -10 0 C-5 4, 0 -5, 0 -10 Z" fill="#A8B5A0" opacity="0.85"/>
     <circle cx="8" cy="40" r="6" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.6"/>
-    <path d="M0 80 C-12 75, -15 85, -8 90 C-4 93, 0 85, 0 80 Z" fill="#A8B5A0" opacity="0.85"/>
-    <path d="M0 140 C10 135, 15 145, 8 150 C4 153, 0 145, 0 140 Z" fill="#A8B5A0" opacity="0.85"/>
     <circle cx="-6" cy="180" r="4.5" fill="#FFF9F2" stroke="#B89A62" stroke-width="0.6"/>
-    <path d="M0 220 C-10 215, -15 225, -8 230 Z" fill="#A8B5A0" opacity="0.85"/>
   </g>
 
   <!-- Right Pillar Vine -->
   <g transform="translate(630, 480)">
     <path d="M0 -150 Q-10 -75 0 0 Q10 75 0 150 Q-8 225 0 300" stroke="#B89A62" stroke-width="0.8" fill="none" opacity="0.4"/>
-    <path d="M0 -120 C10 -125, 15 -118, 8 -110 C4 -106, 0 -115, 0 -120 Z" fill="#A8B5A0" opacity="0.85"/>
-    <path d="M0 -70 C-10 -75, -15 -68, -8 -60 C-4 -56, 0 -65, 0 -70 Z" fill="#A8B5A0" opacity="0.85"/>
     <circle cx="8" cy="-40" r="5" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.6"/>
-    <path d="M0 -10 C12 -15, 16 -8, 10 0 C5 4, 0 -5, 0 -10 Z" fill="#A8B5A0" opacity="0.85"/>
     <circle cx="-8" cy="40" r="6" fill="#E8C7C2" stroke="#B89A62" stroke-width="0.6"/>
-    <path d="M0 80 C12 75, 15 85, 8 90 C4 93, 0 85, 0 80 Z" fill="#A8B5A0" opacity="0.85"/>
-    <path d="M0 140 C-10 135, -15 145, -8 150 C-4 153, 0 145, 0 140 Z" fill="#A8B5A0" opacity="0.85"/>
     <circle cx="6" cy="180" r="4.5" fill="#FFF9F2" stroke="#B89A62" stroke-width="0.6"/>
-    <path d="M0 220 C10 215, 15 225, 8 230 Z" fill="#A8B5A0" opacity="0.85"/>
   </g>
 
   <!-- Bottom Arch Corner Accents -->

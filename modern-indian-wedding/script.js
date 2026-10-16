@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
   initCountdown();
   initEventsCalendar();
+  initBackgroundAudio();
   initPhotoGallery();
   initVenueSection();
   initRsvpSection();
@@ -141,7 +142,6 @@ function initOpeningInvitation() {
   const overlay = document.getElementById('envelope-overlay');
   const envelope = document.getElementById('envelope');
   const openBtn = document.getElementById('open-envelope-btn');
-  const skipBtn = document.getElementById('skip-envelope-btn');
   const mainContent = document.getElementById('main-content');
 
   if (!overlay || !envelope || !mainContent) return;
@@ -196,26 +196,52 @@ function initOpeningInvitation() {
     card.addEventListener('transitionend', finishOpening);
   };
 
-  const skipOpen = () => {
-    if (isOpening) return;
-    isOpening = true;
-
-    document.body.classList.remove('is-locked');
-    mainContent.classList.remove('is-hidden');
-    overlay.classList.add('fade-out');
-    overlay.classList.add('is-hidden');
-  };
-
   // Click & Touch events
   envelope.addEventListener('click', triggerOpen);
   if (openBtn) openBtn.addEventListener('click', (e) => {
     e.stopPropagation();
+    // Reveal the main content first: the shared audio element lives inside it.
+    // Both operations stay in this click task, so playback still has user activation.
     triggerOpen();
-  });
 
-  if (skipBtn) skipBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    skipOpen();
+    const audio = document.getElementById('wedding-background-music');
+    if (audio) {
+      audio.loop = true;
+      audio.muted = false;
+      if (audio.volume <= 0) audio.volume = 1;
+
+      const getAudioState = () => ({
+        src: audio.src,
+        currentSrc: audio.currentSrc,
+        paused: audio.paused,
+        muted: audio.muted,
+        volume: audio.volume,
+        readyState: audio.readyState,
+        networkState: audio.networkState,
+        currentTime: audio.currentTime,
+        error: audio.error ? { code: audio.error.code, message: audio.error.message } : null
+      });
+
+      try {
+        const playback = audio.play();
+        if (playback && typeof playback.then === 'function') {
+          playback.then(() => {
+            const state = getAudioState();
+            if (state.paused || state.muted || state.volume <= 0) {
+              console.error('Background music play() resolved without audible playback.', state);
+            } else {
+              console.info('Background music is playing.', state);
+            }
+          }).catch((error) => {
+            console.error('Background music failed to play from Tap to Open.', error, getAudioState());
+          });
+        } else {
+          console.warn('The browser did not provide a playback Promise.', getAudioState());
+        }
+      } catch (error) {
+        console.error('Background music failed to start from Tap to Open.', error, getAudioState());
+      }
+    }
   });
 
   // Keyboard accessibility: Enter or Space on envelope
@@ -277,6 +303,35 @@ function initCountdown() {
    3. EVENT CALENDAR LINKS
    ========================================================================== */
 function initEventsCalendar() {
+  const directionsLinks = document.querySelectorAll('.event-directions-link');
+
+  directionsLinks.forEach((link) => {
+    const index = Number(link.getAttribute('data-event-index'));
+    const event = WEDDING_CONFIG.events[index];
+    if (!event) return;
+
+    const venueName = typeof event.venue === 'string' ? event.venue.trim() : '';
+    const eventAddress = typeof event.venueAddress === 'string' ? event.venueAddress.trim() : '';
+    const configuredAddress = venueName === WEDDING_CONFIG.venue.name
+      ? String(WEDDING_CONFIG.venue.address || '').trim()
+      : '';
+    const venueAddress = eventAddress || configuredAddress;
+    if (!venueAddress) {
+      link.hidden = true;
+      return;
+    }
+
+    const destination = [venueName, venueAddress].filter(Boolean).join(', ');
+    link.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+    link.hidden = false;
+
+    const addressDisplay = document.querySelector(`[data-event-address-index="${index}"]`);
+    if (addressDisplay && venueAddress) {
+      addressDisplay.textContent = venueAddress;
+      addressDisplay.hidden = false;
+    }
+  });
+
   const calButtons = document.querySelectorAll('.add-cal-btn');
 
   calButtons.forEach((btn) => {
@@ -295,6 +350,61 @@ function initEventsCalendar() {
 
       window.open(googleCalUrl, '_blank', 'noopener,noreferrer');
     });
+  });
+}
+
+/* ==========================================================================
+   BACKGROUND MUSIC
+   ========================================================================== */
+function initBackgroundAudio() {
+  const audio = document.getElementById('wedding-background-music');
+  const toggle = document.getElementById('audio-toggle');
+  const status = document.getElementById('audio-status');
+  if (!audio || !toggle) return;
+
+  let playbackRequested = false;
+
+  const setPlaybackState = (isPlaying) => {
+    toggle.setAttribute('aria-pressed', String(isPlaying));
+    const label = isPlaying ? 'Turn background music off' : 'Turn background music on';
+    toggle.setAttribute('aria-label', label);
+    toggle.title = label;
+  };
+
+  toggle.addEventListener('click', async () => {
+    if (playbackRequested || !audio.paused) {
+      playbackRequested = false;
+      audio.pause();
+      setPlaybackState(false);
+      return;
+    }
+
+    playbackRequested = true;
+    if (status) status.textContent = '';
+
+    try {
+      await audio.play();
+      setPlaybackState(true);
+    } catch (error) {
+      playbackRequested = false;
+      setPlaybackState(false);
+      toggle.setAttribute('aria-label', 'Try starting background music again');
+      toggle.title = 'Background music could not be played. Try again.';
+      if (status) status.textContent = 'Background music could not be played. You can try again.';
+    }
+  });
+
+  audio.addEventListener('play', () => setPlaybackState(true));
+  audio.addEventListener('pause', () => {
+    playbackRequested = false;
+    setPlaybackState(false);
+  });
+  audio.addEventListener('error', () => {
+    playbackRequested = false;
+    setPlaybackState(false);
+    toggle.setAttribute('aria-label', 'Try starting background music again');
+    toggle.title = 'Background music could not be loaded. Try again.';
+    if (status) status.textContent = 'Background music could not be loaded. You can try again.';
   });
 }
 
