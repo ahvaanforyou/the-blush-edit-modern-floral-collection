@@ -155,6 +155,53 @@ function initOpeningInvitation() {
     document.body.classList.remove('is-locked');
   };
 
+  let audioStartPending = false;
+  const startBackgroundMusic = () => {
+    const audio = document.getElementById('wedding-background-music');
+    if (!audio || !audio.paused || audioStartPending) return;
+
+    audio.loop = true;
+    audio.muted = false;
+    if (audio.volume <= 0) audio.volume = 1;
+    audioStartPending = true;
+
+    const getAudioState = () => ({
+      src: audio.src,
+      currentSrc: audio.currentSrc,
+      paused: audio.paused,
+      muted: audio.muted,
+      volume: audio.volume,
+      readyState: audio.readyState,
+      networkState: audio.networkState,
+      currentTime: audio.currentTime,
+      error: audio.error ? { code: audio.error.code, message: audio.error.message } : null
+    });
+
+    try {
+      const playback = audio.play();
+      if (playback && typeof playback.then === 'function') {
+        playback.then(() => {
+          audioStartPending = false;
+          const state = getAudioState();
+          if (state.paused || state.muted || state.volume <= 0) {
+            console.error('Background music play() resolved without audible playback.', state);
+          } else {
+            console.info('Background music is playing.', state);
+          }
+        }).catch((error) => {
+          audioStartPending = false;
+          console.error('Background music failed to play from the invitation cover.', error, getAudioState());
+        });
+      } else {
+        audioStartPending = false;
+        console.warn('The browser did not provide a playback Promise.', getAudioState());
+      }
+    } catch (error) {
+      audioStartPending = false;
+      console.error('Background music failed to start from the invitation cover.', error, getAudioState());
+    }
+  };
+
   const triggerOpen = () => {
     if (isOpening) return;
     isOpening = true;
@@ -196,59 +243,23 @@ function initOpeningInvitation() {
     card.addEventListener('transitionend', finishOpening);
   };
 
-  // Click & Touch events
-  envelope.addEventListener('click', triggerOpen);
+  // Both cover interactions share one opening and audio path.
+  const handleOpenInteraction = () => {
+    triggerOpen();
+    startBackgroundMusic();
+  };
+
+  envelope.addEventListener('click', handleOpenInteraction);
   if (openBtn) openBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    // Reveal the main content first: the shared audio element lives inside it.
-    // Both operations stay in this click task, so playback still has user activation.
-    triggerOpen();
-
-    const audio = document.getElementById('wedding-background-music');
-    if (audio) {
-      audio.loop = true;
-      audio.muted = false;
-      if (audio.volume <= 0) audio.volume = 1;
-
-      const getAudioState = () => ({
-        src: audio.src,
-        currentSrc: audio.currentSrc,
-        paused: audio.paused,
-        muted: audio.muted,
-        volume: audio.volume,
-        readyState: audio.readyState,
-        networkState: audio.networkState,
-        currentTime: audio.currentTime,
-        error: audio.error ? { code: audio.error.code, message: audio.error.message } : null
-      });
-
-      try {
-        const playback = audio.play();
-        if (playback && typeof playback.then === 'function') {
-          playback.then(() => {
-            const state = getAudioState();
-            if (state.paused || state.muted || state.volume <= 0) {
-              console.error('Background music play() resolved without audible playback.', state);
-            } else {
-              console.info('Background music is playing.', state);
-            }
-          }).catch((error) => {
-            console.error('Background music failed to play from Tap to Open.', error, getAudioState());
-          });
-        } else {
-          console.warn('The browser did not provide a playback Promise.', getAudioState());
-        }
-      } catch (error) {
-        console.error('Background music failed to start from Tap to Open.', error, getAudioState());
-      }
-    }
+    handleOpenInteraction();
   });
 
   // Keyboard accessibility: Enter or Space on envelope
   envelope.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      triggerOpen();
+      handleOpenInteraction();
     }
   });
 }
