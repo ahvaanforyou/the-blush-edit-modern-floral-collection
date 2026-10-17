@@ -22,7 +22,7 @@ const WEDDING_CONFIG = {
   formattedDate: 'October 24, 2027',
   venue: {
     name: 'The Grand Garden',
-    address: 'Sample Wedding Venue, Bengaluru, Karnataka, India',
+    address: 'Bengaluru, Karnataka, India',
     mapsQuery: 'The+Grand+Garden+Bengaluru+Karnataka+India',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=The+Grand+Garden+Bengaluru+Karnataka+India'
   },
