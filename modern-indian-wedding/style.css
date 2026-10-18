@@ -55,6 +55,9 @@ html {
   scroll-behavior: smooth;
   background-color: var(--color-ivory);
   color: var(--color-brown);
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -65,6 +68,9 @@ body {
   background-color: var(--color-ivory);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 /* Body lock when opening envelope is visible */
@@ -118,6 +124,8 @@ a {
 .envelope-overlay {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 99999;
   background-color: var(--color-ivory);
   background-image: radial-gradient(var(--color-blush-light) 1px, transparent 1px);
@@ -125,7 +133,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
+  overflow: hidden;
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
@@ -146,7 +155,7 @@ a {
   position: absolute;
   inset: 0;
   z-index: 0;
-  overflow: clip;
+  overflow: hidden;
   pointer-events: none;
 }
 
@@ -177,8 +186,12 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   perspective: 1200px;
   z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 /* Envelope Box Structure */
@@ -187,7 +200,7 @@ a {
   isolation: isolate;
   width: 420px;
   height: 270px;
-  max-width: 88vw;
+  max-width: min(420px, calc(100vw - 2rem));
   max-height: 56vw;
   background-color: var(--color-blush-light);
   border-radius: 8px;
@@ -195,6 +208,7 @@ a {
   cursor: pointer;
   transition: transform var(--transition-normal);
   outline: none;
+  margin: 0 auto;
 }
 
 .envelope:hover, .envelope:focus-visible {
@@ -264,11 +278,12 @@ a {
 
 .preview-names {
   font-family: var(--font-serif);
-  font-size: clamp(1.32rem, 4.2vw, 1.72rem);
+  font-size: clamp(1.15rem, 4.2vw, 1.72rem);
   font-weight: 600;
   color: var(--color-brown);
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.1;
+  text-align: center;
+  max-width: 100%;
 }
 
 .preview-message {
@@ -1876,7 +1891,7 @@ a {
      This keeps those absolutely positioned SVGs from widening the document while
      leaving vertical decoration and shadows visible. */
   .decorated-section {
-    overflow-x: clip;
+    overflow-x: hidden;
   }
 
   .section-ornament.ornament-mandala { width: 220px; opacity: 0.55; }
@@ -2193,8 +2208,11 @@ a {
   .opening-garland { right: 0; top: -57px; width: 74px; }
 
   .envelope {
-    width: 330px;
-    height: 220px;
+    width: 320px;
+    max-width: calc(100vw - 1.5rem);
+    height: 215px;
+    max-height: calc(66vw + 10px);
+    margin: 0 auto;
   }
 
   .wax-seal img {
